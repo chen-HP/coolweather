@@ -6,9 +6,10 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+
 public class HttpUtil
 {
-	public static void sendHttpRequest(final String address, final HttpCallbackListener httpCallbackListener)
+	public static void sendHttpRequest(final String address, final HttpCallbackListener httpCallBackListener)
 	{
 		new Thread(new Runnable(){
 
@@ -41,17 +42,17 @@ public class HttpUtil
 					{
 						response.append(line);
 					}
-					if(httpCallbackListener != null)
+					if(httpCallBackListener != null)
 					{
-						httpCallbackListener.onFinish(response.toString());
+						httpCallBackListener.onFinish(response.toString());
 					}
 						
 				}
 				catch(Exception e)
 				{
-					if(httpCallbackListener != null)
+					if(httpCallBackListener != null)
 					{
-						 httpCallbackListener.onError(e);
+						 httpCallBackListener.onError(e);
 					}
 				}
 				finally
